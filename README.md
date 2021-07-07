@@ -1,16 +1,16 @@
 # ChromeOS-With-Android
 
-This is a simplified method of installing ChromeOS on most Computers - and with Android support.
+This is a simplified method of installing ChromeOS on most Computers - and with Android support. It works incredibly well, even from a flash drive or something, since ChromeOS is based off of Gentoo. In fact, running it from a usb2 isn't significantly worse than an ssd after the long usb2-flavored boot - since so much of the OS is cached to ram.
 
-### Here's the Original Guide
+### Here's the Original Guide Before I make fun of it
 
 https://beebom.com/how-install-chrome-os-on-pc/
 
-He makes the process needlessly complicated, and also does something that I find terribly annoying. He advertises in his 1-line shell script and that's just bad manners. Also he ran **figlet as sudo**, and I can't respect a man who does that.
+He makes the process needlessly complicated, and also does something that I find terribly annoying. He advertises in his 1-line shell script -- and that's just bad manners. Also he ran **figlet as sudo**, and I can't respect a man who does that. Additionally the 'magic script' he talks about is literally the one code block that I threw in this.
 
-Thanks to him I can do this with crouton easily though.
+Thanks to him I can do this with crouton easily though lol.
 
-#### How to Install 
+# Installation 
 
 * Download recovery Image (Usually Samus):
     https://cros-updates-serving.appspot.com/
@@ -44,16 +44,18 @@ https://github.com/sebanc/brunch/releases/
 sudo apt-get update
 sudo apt-get install pv
 sudo apt-get install cgpt
+
+# In the next step, rename 'samus_recovery' to rammus or whatever. And choose the right block device. It's harder to just use a partition to install, so I left it out.*
+
+# Again, this will format whichever block device you chose so don't blame me if you formatted your disk. Look at the output from fdisk
 ```
 
-* In the next step, rename 'samus_recovery' to rammus or whatever. **And choose the right block device.** It's harder to just use a partition to install, so I left it out.*
-* Again, this will format whichever block device you chose so don't blame me if you formatted your disk. **Look at the output from fdisk**
-
-* Begin Install 
+* Install
     ```sudo bash ./chromeos-install.sh -src samus_recovery.bin -dst /dev/sdx ```
-* Wait like 10 minutes for it to compile.
-* Boot from USB and you're done. And it runs amazingly, not gonna lie.
-    Problems? Secure boot disabled? UEFI works easier than legacy. **Read the brunch git for additional information.**
+  - Wait like 10 minutes for it to compile.
+  - Boot from USB and you're done. It has to rebuild the initramfs or something on first boot but after that, you'll have a normal boot time.
+    
+ * Problems? Secure boot disabled? UEFI works easier than legacy. **Read the brunch git for additional information.**
 
 ## Tips:
 
