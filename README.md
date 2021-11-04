@@ -94,3 +94,5 @@ sudo bash ./chromeos-install.sh -src samus_recovery.bin -dst /dev/sdx
 - This is **missing some of the TPM security** but it's still sandboxed ofc. People say it's less secure, but are you going to be reasonably hackable on Gentoo.ChromeOS? No. Plus tpm security has a history of **not being identifiably more secure**, so whatever.
 
 - Don't let windows touch any of the partitions. It'll break the checksum I mentioned.  
+
+- RTFM, this will not work with anything prior to Gen 1 Intel, (not sure when the cutoff is for AMD). For example I couldn't install this on a 2007 imac, even though virtualization is supported. The necessary cpu features aren't there, and it will not be patched in. Additionally, Cloudready has dropped support for older hardware recently, so you may find yourself having to switch over to Linux for your older boxes. 
